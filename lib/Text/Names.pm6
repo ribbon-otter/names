@@ -1,6 +1,6 @@
 use v6;
 
-unit module names;
+unit module Text::Names;
 #This code is under MIT license 
 
 grammar LINE {
@@ -12,7 +12,7 @@ grammar LINE {
 	token name { \w+ }
 }
 
-sub get-name(Str $filename) {
+sub get-name($filename) {
 	state %buffer;
 	if $_ = %buffer{$filename}.?pop() {
 		return $_;	
@@ -21,9 +21,11 @@ sub get-name(Str $filename) {
 		return %buffer{$filename}.pop();
 	}
 }
-sub get-names(Str $filename, Int $count) {
+
+sub get-names($filename, Int $count) {
 	my @selected = (90.023.rand() for 1..$count).sort();
-	my $file = $?FILE.IO.resolve.sibling($filename).open;
+	my $file = open($filename);
+
 	my @names = gather { 
 		while $_ = $file.get() and @selected.elems > 0 {
 			.chomp;
@@ -44,12 +46,12 @@ sub get-names(Str $filename, Int $count) {
 
 #| generate and return a single female first name 
 sub get-female() is export  {
-	return get-name("dist.female.first");
+	return get-name(%?RESOURCES{"dist.female.first"}.absolute("/"));
 }
 
 #| generate and return a single male first name 
 sub get-male() is export  {
-	return get-name("dist.male.first");
+	return get-name(%?RESOURCES{"dist.male.first"}.absolute("/"));
 }
 
 #|(generate and return a single last name. Note that the capitalization 
@@ -57,7 +59,7 @@ sub get-male() is export  {
 # the data source file I have has the names in all caps
 # )
 sub get-last() is export  {
-	return get-name("dist.all.last");
+	return get-name(%?RESOURCES{"dist.all.last"}.absolute("/"));
 }
 
 #|(Gender means what type of name you want (vs the main identities which people

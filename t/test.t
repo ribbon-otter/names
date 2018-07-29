@@ -1,8 +1,8 @@
 use v6;
 use Test;
 use Test::META;
-use lib '../lib/Text';
-use Names;
+use lib 'lib';
+use Text::Names;
 
 
 #this code is under MIT license
