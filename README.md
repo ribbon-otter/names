@@ -2,7 +2,7 @@ Text::Names generates American English names.
 
 I wrote this project as a way of learning perl6 so the code may not be fully idiomatic perl6. 
 
-#Usage
+# Usage
 
 ```
 get-full() # generates a random name with a first name and last name 
@@ -17,12 +17,12 @@ You can significantly increase performance for large numbers of generated names 
 
 If you prefer enums to magic strings, you can use `male`, `female`, and `both` from the enum `Gender`. 
 
-#Known Issues
+# Known Issues
 Performance is a bit rubbish. The current algorithm is slower than it needs to be. Some speed increases can be implemented likely by indexing the source file instead of reading though almost the entire name database every time a rare name is generated. Alternatively a heuristic could likely be used to allow greater leaps down the text file to find the target name quicker.
 
 In theory, the automatic tests could rarely fail just from drawing the same random name several times in a row. I have never seen this happen and is extremely unlikely.
 
-#Credit
+# Credit
 This module was written using the python ["names"](https://github.com/treyhunner/names) module heavily as reference. Ribbon-otter (me) copied the public domain source files as well as the basic algorithm from it. The names python project, at time of writing, lists their authors as 
 
 * Trey Hunner <http://treyhunner.com>
