@@ -1,0 +1,17 @@
+    {
+        "perl" : "6.c",
+        "name" : "Text::Names",
+        "auth" : "github:ribbon-otter",
+        "api" : "1",
+        "version" : "0.0.1",
+        "description" : "A module that can generate full American English names of either gender.",
+        "authors" : [ "ribbon-otter" ],
+        "license" : "MIT",
+        "provides" : {
+            "Text::Names": "lib/Text/Names.pm6"
+        },
+        "tags": [
+          "NPL", "Natural Language", "Names", "Dummy Data"
+        ],
+        "source-url" :"example.com" 
+    }
